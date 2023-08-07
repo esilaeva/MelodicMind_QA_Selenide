@@ -11,6 +11,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class LoginPage extends TestBase {
     SelenideElement
             profile = $("a[href='/account']"),
+           // titleLoginPage = $("h1.text-weight-bold").$(byText(" Login / Sign Up ")),
             continueWithEmail = $("div.btn-container").lastChild(),
             tabSignIn = $("div.email-auth-container").$(byText("Sign in")),
             emailInput = $("form.q-form.login-form input[aria-label='Email']"),
@@ -23,6 +24,12 @@ public class LoginPage extends TestBase {
 
     public LoginPage openLoginPage(){
         open("/login");
+
+        return this;
+    }
+
+    public LoginPage checkLoginPageOpened(){
+        continueWithEmail.should(appear);
 
         return this;
     }

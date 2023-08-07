@@ -158,6 +158,7 @@ public class LoginTests extends TestBase {
     void loginNegativeWithEmailWrongPassword() {
         login
                 .openLoginPage()
+                .checkLoginPageOpened()
                 .continueWithEmail()
                 .chooseTabSignIn()
                 .setEmail("ilana.qa@proton.me")
